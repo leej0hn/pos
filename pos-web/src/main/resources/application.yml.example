@@ -5,10 +5,11 @@ logging:
   level: INFO
 
 posWeb:
+ floor: B1
  ips: /*
  shopNo: 123
  contracNo: A23918
- updateLoadUrl: http://www.maywant.com/zefun/daybook/getOrderData?date=
- getDataUrl: http://www.maywant.com/zefun/daybook/getOrderData?date=
+ updateLoadUrl:
+ getDataUrl:
  dataPath: C:/temp/posData
 server.port: 8082
