@@ -1,0 +1,14 @@
+spring.thymeleaf.cache: false
+
+logging:
+  file: /log/zts/pos-web-counter.log
+  level: INFO
+
+posWeb:
+ ips: /*
+ shopNo: 123
+ contracNo: A23918
+ updateLoadUrl: http://www.maywant.com/zefun/daybook/getOrderData?date=
+ getDataUrl: http://www.maywant.com/zefun/daybook/getOrderData?date=
+ dataPath: C:/temp/posData
+server.port: 8082

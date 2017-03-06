@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.communet.pos</groupId>
+    <artifactId>pos</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>pos-parent</module>
+        <module>pos-web</module>
+    </modules>
+    <name>pos</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.7</java.version>
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
+    </properties>
+
+    <!-- 设定主仓库，按设定顺序进行查找。 -->
+    <repositories>
+
+        <!-- 公司社群私服.-->
+        <repository>
+            <id>communet</id>
+            <name>communet Repository</name>
+            <url>http://repo.communet.io/content/groups/public/</url>
+        </repository>
+        <!--
+        <repository>
+            <id>oschina-repos</id>
+            <name>Oschina Releases</name>
+            <url>http://maven.oschina.net/content/groups/public</url>
+        </repository>
+
+        <repository>
+            <id>java-repos</id>
+            <name>Java Repository</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+
+        <repository>
+            <id>springsource-repos</id>
+            <name>SpringSource Repository</name>
+            <url>http://repo.spring.io/release/</url>
+        </repository>
+
+        <repository>
+            <id>central-repos</id>
+            <name>Central Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+        </repository>
+
+        <repository>
+            <id>central-repos2</id>
+            <name>Central Repository 2</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+
+        <repository>
+            <id>activiti-repos</id>
+            <name>Activiti Repository</name>
+            <url>https://maven.alfresco.com/nexus/content/groups/public</url>
+        </repository>
+
+        <repository>
+            <id>activiti-repos2</id>
+            <name>Activiti Repository 2</name>
+            <url>https://app.camunda.com/nexus/content/groups/public</url>
+        </repository>
+
+        <repository>
+            <id>thinkgem-repos</id>
+            <name>ThinkGem Repository</name>
+            <url>http://git.oschina.net/thinkgem/repos/raw/master</url>
+        </repository>
+        -->
+        <!--
+        <repository>
+            <id>thinkgem-repos2</id>
+            <name>ThinkGem Repository 2</name>
+            <url>https://raw.github.com/thinkgem/repository/master</url>
+        </repository>
+        -->
+    </repositories>
+
+    <!-- 设定插件仓库 -->
+    <pluginRepositories>
+
+        <!-- 如有Nexus私服, 取消注释并指向正确的服务器地址.-->
+        <pluginRepository>
+            <id>communet</id>
+            <name>communet Repository</name>
+            <url>http://repo.communet.io/content/groups/public/</url>
+        </pluginRepository>
+        <!--
+        <pluginRepository>
+            <id>oschina-repos</id>
+            <name>Oschina Releases</name>
+            <url>http://maven.oschina.net/content/groups/public</url>
+        </pluginRepository>
+        -->
+
+    </pluginRepositories>
+
+    <!--
+    <distributionManagement>
+        <repository>
+            <id>communet</id>
+            <name>communet release repository</name>
+            <url>http://repo.communet.io/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>communet</id>
+            <name>communet snapshot repository</name>
+            <url>http://repo.communet.io/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    -->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

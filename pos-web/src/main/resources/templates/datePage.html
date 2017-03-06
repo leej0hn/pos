@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout"
+      lang="en" >
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>上传数据</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" href="../static/favicon.ico" />
+    <link rel="stylesheet" th:href="@{/assets/css/amazeui.min.css}" href="../static/assets/css/amazeui.min.css"/>
+    <script th:src="@{/assets/js/jquery.min.js}" src="../static/assets/js/jquery.min.js"></script>
+    <script th:src="@{/assets/js/amazeui.min.js}" src="../static/assets/js/amazeui.min.js"></script>
+    <script>
+        $(function() {
+            var nowTemp = new Date();
+            var nowDay = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0).valueOf();
+            var nowMoth = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), 1, 0, 0, 0, 0).valueOf();
+            var nowYear = new Date(nowTemp.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
+            var $myStart2 = $('#dateTime');
+
+            var checkin = $myStart2.datepicker({
+                onRender: function(date, viewMode) {
+                    // 默认 days 视图，与当前日期比较
+                    var viewDate = nowDay;
+
+                    switch (viewMode) {
+                            // moths 视图，与当前月份比较
+                        case 1:
+                            viewDate = nowMoth;
+                            break;
+                            // years 视图，与当前年份比较
+                        case 2:
+                            viewDate = nowYear;
+                            break;
+                    }
+
+                    return date.valueOf() > viewDate ? 'am-disabled' : '';
+                }
+            })
+        });
+    </script>
+
+    <script th:inline="javascript">
+        $(function() {
+            $('#pullButton').click(function () {
+                $.post(/*[[@{/pos/api/process/get}]]*/,
+                        {
+                            'dateTime':$('#dateTime').val()
+                        },
+                        function(data){
+                            alert(data);
+                        }
+                );
+            });
+            $('#uploadButton').click(function () {
+                $.post(/*[[@{/pos/api/process/upload}]]*/,
+                        {
+                            'dateTime':$('#dateTime').val()
+                        },
+                        function(data){
+                            alert(data);
+                        }
+                );
+            });
+            $('#queryButton').click(function () {
+                $.post(/*[[@{/pos/api/process/query}]]*/,
+                        {
+                            'dateTime':$('#dateTime').val()
+                        },
+                        function(data){
+                            alert(data);
+                        }
+                );
+            });
+        });
+    </script>
+</head>
+
+<body>
+<form id="inputForm"  method="post" >
+    <span  style="float: left;line-height: 36px;">日期：</span>
+    <input type="text" class="am-form-field" placeholder="选择日期" id="dateTime" name="dateTime" style="float: left;width: 10%" readonly="readonly" />
+    <!--<br/><br/>-->
+    <input class="am-btn am-btn-secondary" type="button" id="pullButton"  value="获取数据" />
+    <input class="am-btn am-btn-secondary" type="button" id="uploadButton" value="上传数据" />
+    <input class="am-btn am-btn-secondary" type="button" id="queryButton" value="查询数据" />
+</form>
+<br/><br/>
+
+
+<!--<input id="btAdd" type="button" value="Add" onclick="alert(document.getElementByIdx_x('File1').value);" />-->
+
+</body>
+
+</html>
