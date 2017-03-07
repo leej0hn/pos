@@ -24,12 +24,8 @@
     <!-- 设定主仓库，按设定顺序进行查找。 -->
     <repositories>
 
-        <!-- 公司社群私服.-->
-        <repository>
-            <id>communet</id>
-            <name>communet Repository</name>
-            <url>http://repo.communet.io/content/groups/public/</url>
-        </repository>
+        <!-- 私服.-->
+
         <!--
         <repository>
             <id>oschina-repos</id>
@@ -92,11 +88,7 @@
     <pluginRepositories>
 
         <!-- 如有Nexus私服, 取消注释并指向正确的服务器地址.-->
-        <pluginRepository>
-            <id>communet</id>
-            <name>communet Repository</name>
-            <url>http://repo.communet.io/content/groups/public/</url>
-        </pluginRepository>
+
         <!--
         <pluginRepository>
             <id>oschina-repos</id>
@@ -106,21 +98,6 @@
         -->
 
     </pluginRepositories>
-
-    <!--
-    <distributionManagement>
-        <repository>
-            <id>communet</id>
-            <name>communet release repository</name>
-            <url>http://repo.communet.io/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>communet</id>
-            <name>communet snapshot repository</name>
-            <url>http://repo.communet.io/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-    -->
 
     <build>
         <plugins>
