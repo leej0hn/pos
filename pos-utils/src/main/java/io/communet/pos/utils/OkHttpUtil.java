@@ -19,13 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class OkHttpUtil {
     private static Logger logger = LoggerFactory.getLogger(OkHttpUtil.class);
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static OkHttpClient client = new OkHttpClient();
-
-    static {
-        client.newBuilder().connectTimeout(10, TimeUnit.SECONDS);
-        client.newBuilder().writeTimeout(10, TimeUnit.SECONDS);
-        client.newBuilder().readTimeout(10, TimeUnit.SECONDS);
-    }
+    private static OkHttpClient client = new OkHttpClient.Builder().connectTimeout(3,TimeUnit.SECONDS).build();
 
     public static String get(String url)  {
         logger.info("OkHttpUtil.get url : " + url);
