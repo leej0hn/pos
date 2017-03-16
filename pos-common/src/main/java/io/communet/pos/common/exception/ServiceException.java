@@ -1,4 +1,4 @@
-package io.communet.pos.web.exception;
+package io.communet.pos.common.exception;
 
 /**
  * <p>function:自定义业务异常

@@ -1,4 +1,4 @@
-package io.communet.pos.web.dto;
+package io.communet.pos.common.dto;
 
 import lombok.Data;
 

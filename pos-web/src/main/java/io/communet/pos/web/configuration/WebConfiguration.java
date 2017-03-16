@@ -1,7 +1,7 @@
 package io.communet.pos.web.configuration;
 
 import io.communet.pos.web.interceptor.IpInterceptor;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -13,13 +13,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * <p>Version: 1.0
  */
 @Configuration
-public class PosWebConfiguration extends WebMvcConfigurerAdapter {
-    @Value("${posWeb.ips:}")
-    private String ips;
+public class WebConfiguration extends WebMvcConfigurerAdapter {
 
+    @Autowired
+    private IpInterceptor ipInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new IpInterceptor(ips)).addPathPatterns("/**");
+        registry.addInterceptor(ipInterceptor).addPathPatterns("/**");
         super.addInterceptors(registry);
     }
 }

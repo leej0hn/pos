@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
  * <p>Version: 1.0
  */
 @Component
-@ConfigurationProperties(prefix="posWeb")
+@ConfigurationProperties(prefix="web")
 @Data
-public class PosWebConfig {
+public class WebConfig {
     private String ips;
 }

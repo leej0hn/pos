@@ -1,9 +1,9 @@
 package io.communet.pos.web.controller;
 
 import com.alibaba.fastjson.JSON;
-import io.communet.pos.web.dto.OrderInfo;
-import io.communet.pos.web.dto.PosDateResponse;
-import io.communet.pos.web.utils.OkHttpUtil;
+import io.communet.pos.common.dto.OrderInfo;
+import io.communet.pos.common.dto.PosDateResponse;
+import io.communet.pos.utils.OkHttpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.util.TextUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,26 +56,23 @@ public class ProcessController {
     //系统资料更新中，请重新上传
     public static final String DATA_SYNC_IN_PROGRESS = "DATA_SYNC_IN_PROGRESS";
 
-    @Value("${posWeb.floor:}")
+    @Value("${web.floor:}")
     private String floor;
 
-    @Value("${posWeb.shopNo:}")
+    @Value("${web.shopNo:}")
     private String shopNo;
 
-    @Value("${posWeb.contracNo:}")
+    @Value("${web.contracNo:}")
     private String contracNo;
 
-    @Value("${posWeb.getDataUrl:}")
+    @Value("${web.getDataUrl:}")
     private String getDataUrl;
 
-    @Value("${posWeb.updateLoadUrl:}")
+    @Value("${web.updateLoadUrl:}")
     private String updateLoadUrl;
 
-    @Value("${posWeb.dataPath}")
+    @Value("${web.dataPath}")
     private String dataPath;
-
-    @Value("${server.port}")
-    private int port;
 
     private boolean checkDateTime(String date) {
         if (TextUtils.isEmpty(date)) {
@@ -102,7 +99,7 @@ public class ProcessController {
             orderInfoSortedList.add(new OrderInfo(dateTime + " " + getHourString(i) + ":00:00"));
         }
         try {
-            PosDateResponse posDateResponse = JSON.parseObject(OkHttpUtil.getStringFromServer(url), PosDateResponse.class);
+            PosDateResponse posDateResponse = JSON.parseObject(OkHttpUtil.get(url), PosDateResponse.class);
             if (posDateResponse != null) {
                 List<OrderInfo> msg = posDateResponse.getMsg();
                 if (msg != null && msg.size() > 0) {

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>pos</artifactId>
         <groupId>io.communet.pos</groupId>
@@ -26,7 +24,7 @@
         <jodd.version>3.5.1</jodd.version>
         <guava.version>19.0</guava.version>
         <lombok.version>1.14.8</lombok.version>
-        <okhttp.version>2.6.0</okhttp.version>
+        <okhttp.version>3.5.0</okhttp.version>
 
         <!-- g7-mongo-utils-->
         <jcseg.version>1.9.9</jcseg.version>
@@ -37,7 +35,7 @@
         <apache-commons-io.version>1.3.2</apache-commons-io.version>
         <commons-lang.version>2.6</commons-lang.version>
         <alibaba-fastjson.version>1.2.6</alibaba-fastjson.version>
-        <httpclient.version>4.5.1</httpclient.version>
+        <httpclient.version>4.5.2</httpclient.version>
         <jackson.version>2.7.0</jackson.version>
         <selenium-java.version>2.44.0</selenium-java.version>
         <phantomjsdriver.version>1.2.0</phantomjsdriver.version>
@@ -50,6 +48,11 @@
         <jieba.version>1.0.2</jieba.version>
 
         <dozer.version>5.5.1</dozer.version>
+
+        <mybatis-spring.version>1.1.1</mybatis-spring.version>
+        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+        <alibaba-druid.version>1.0.26</alibaba-druid.version>
+        <redis.version>2.8.2</redis.version>
     </properties>
 
     <dependencies>
@@ -62,6 +65,30 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.communet.pos</groupId>
+                <artifactId>pos-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.communet.pos</groupId>
+                <artifactId>pos-persistence</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.communet.pos</groupId>
+                <artifactId>pos-utils</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.communet.pos</groupId>
+                <artifactId>pos-web</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
@@ -79,7 +106,13 @@
             </dependency>
 
             <dependency>
-                <groupId>com.squareup.okhttp</groupId>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
             </dependency>
@@ -183,6 +216,47 @@
                 <version>${dozer.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba-druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.version}</version>
+            </dependency>
+
+            <!-- alibaba utils -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba-fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons-lang3.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

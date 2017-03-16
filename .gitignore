@@ -31,3 +31,4 @@ application.yml
 LOG_FILE_IS_UNDEFINED*
 logging.file_IS_UNDEFINED
 phantomjsdriver.log
+posData/

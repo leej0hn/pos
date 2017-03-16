@@ -1,6 +1,8 @@
 package io.communet.pos.web.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,10 +16,13 @@ import javax.servlet.http.HttpServletResponse;
  * <p>Version: 1.0
  */
 @Slf4j
+@Component
 public class IpInterceptor implements HandlerInterceptor {
-    private final String ips;
-    public IpInterceptor(String ips) {
-        this.ips = ips;
+
+    @Value("${web.ips:}")
+    private String ips;
+
+    public IpInterceptor(){
     }
 
     @Override
