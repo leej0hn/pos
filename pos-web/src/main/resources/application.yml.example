@@ -4,7 +4,7 @@ logging:
   file: ${user.home}/logs/web.log
   level: INFO
 
-Web:
+web:
  floor: B1
  ips: /*
  shopNo: 123
