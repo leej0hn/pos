@@ -2,7 +2,6 @@ spring.thymeleaf.cache: false
 
 logging:
   file: ${user.home}/logs/web.log
-  level: INFO
 
 web:
  floor: B1

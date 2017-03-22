@@ -1,6 +1,5 @@
 logging:
   file: ${user.home}/logs/persistence.log
-  level.*: DEBUG
 
 # datasource
 spring:
